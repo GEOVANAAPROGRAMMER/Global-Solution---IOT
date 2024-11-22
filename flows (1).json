@@ -1,0 +1,256 @@
+[
+    {
+        "id": "ca92133ad853f47f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "73b75df62f1e1ecb",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "38e0df28f3942093",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "mqtt_broker",
+        "type": "mqtt-broker",
+        "name": "Mosquitto",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "0921386fae904499",
+        "type": "mqtt out",
+        "z": "ca92133ad853f47f",
+        "name": "Enviar Comando Sensor",
+        "topic": "sensor/ativar",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e0df28f3942093",
+        "x": 470,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "ec46acc88a4a0cba",
+        "type": "inject",
+        "z": "ca92133ad853f47f",
+        "name": "Ativar Sensor",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "sensor/ativar",
+        "payload": "ON",
+        "payloadType": "str",
+        "x": 250,
+        "y": 320,
+        "wires": [
+            [
+                "0921386fae904499",
+                "763e0f8b36f497e3"
+            ]
+        ]
+    },
+    {
+        "id": "cf0ea1923b0bad59",
+        "type": "inject",
+        "z": "ca92133ad853f47f",
+        "name": "Desativar Sensor",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "sensor/ativar",
+        "payload": "OFF",
+        "payloadType": "str",
+        "x": 250,
+        "y": 400,
+        "wires": [
+            [
+                "0921386fae904499",
+                "763e0f8b36f497e3"
+            ]
+        ]
+    },
+    {
+        "id": "763e0f8b36f497e3",
+        "type": "debug",
+        "z": "ca92133ad853f47f",
+        "name": "Debug Sensor",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 450,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "7237a023218ddb1e",
+        "type": "mqtt in",
+        "z": "ca92133ad853f47f",
+        "name": "Temperatura do Sensor",
+        "topic": "sensor/temperatura",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "38e0df28f3942093",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 180,
+        "wires": [
+            [
+                "7a17805f9a9fbd7f"
+            ]
+        ]
+    },
+    {
+        "id": "7a17805f9a9fbd7f",
+        "type": "debug",
+        "z": "ca92133ad853f47f",
+        "name": "Exibir Temperatura",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 470,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2903ecd955a543f5",
+        "type": "mqtt out",
+        "z": "ca92133ad853f47f",
+        "name": "Definir Temperatura",
+        "topic": "sensor/temperatura_alvo",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e0df28f3942093",
+        "x": 470,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "2ac6ed5d7c9c8223",
+        "type": "inject",
+        "z": "ca92133ad853f47f",
+        "name": "Definir 25°C",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "sensor/temperatura_alvo",
+        "payload": "25",
+        "payloadType": "str",
+        "x": 250,
+        "y": 260,
+        "wires": [
+            [
+                "2903ecd955a543f5"
+            ]
+        ]
+    }
+]
