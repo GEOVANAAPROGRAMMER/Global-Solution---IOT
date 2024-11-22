@@ -111,4 +111,4 @@ As principais funcionalidades incluem:
 ## **Links Importantes**
 - [Wokwi (Simulador IoT)](https://wokwi.com/projects/415201099640704001)  
 - [Github](https:)  
-- [Vídeo](https:)  
+- [Vídeo](https://github.com/GEOVANAAPROGRAMMER/Global-Solution---IOT/tree/main)  
